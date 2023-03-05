@@ -1,4 +1,4 @@
-package com.footballhub.footballhubapp.common.routers;
+package com.footballhub.footballhubapp.common.controlers;
 
 import com.footballhub.footballhubapp.FootballhubAppApplication;
 import org.slf4j.Logger;
@@ -13,6 +13,6 @@ public class getTest {
     @GetMapping("/")
     public String apiRoot() {
         logger.info("Entering into -> {}", this.getClass().getSimpleName());
-        return "hello world!!!";
+        return "hello world";
     }
 }

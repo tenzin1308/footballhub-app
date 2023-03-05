@@ -1,4 +1,4 @@
-package com.footballhub.footballhubapp;
+package com.footballhub.footballhubapp.common.config;
 
 import org.apache.catalina.connector.Connector;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class HttpHttpsConfig {
 
     //HTTP port
-    @Value("${server.http.port}")
+    @Value("${http.port}")
     private int httpPort;
 
     @Bean
