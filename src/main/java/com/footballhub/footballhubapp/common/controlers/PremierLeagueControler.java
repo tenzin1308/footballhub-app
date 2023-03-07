@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class PremierLeagueControler {
@@ -23,10 +24,16 @@ public class PremierLeagueControler {
 
     // TODO: update the Standings after each GameWeek
 
+    //    @GetMapping("/command-get-epl-standings")
+//    public List<PremierLeagueModel> listPremierLeagueStandings() {
+//        CalculateStandings calculateStandings = new CalculateStandings(premierLeagueRepository.findAll());
+//        List<PremierLeagueModel> standings = calculateStandings.evaluate();
+//        return standings;
+//    }
     @GetMapping("/command-get-epl-standings")
-    public List<PremierLeagueModel> listPremierLeagueStandings() {
+    public List<Map.Entry<String, Integer>> listPremierLeagueStandings() {
         CalculateStandings calculateStandings = new CalculateStandings(premierLeagueRepository.findAll());
-        List<PremierLeagueModel> standings = calculateStandings.evaluate();
+        List<Map.Entry<String, Integer>> standings = calculateStandings.evaluate();
         return standings;
     }
 }
