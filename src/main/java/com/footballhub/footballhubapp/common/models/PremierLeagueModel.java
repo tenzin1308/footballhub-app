@@ -16,8 +16,8 @@ public class PremierLeagueModel {
     private String HomeTeam;
     private String AwayTeam;
     private String Group;
-    private int HomeTeamScore;
-    private int AwayTeamScore;
+    private Integer HomeTeamScore;
+    private Integer AwayTeamScore;
 
     public ObjectId getId() {
         return id;
@@ -83,19 +83,19 @@ public class PremierLeagueModel {
         Group = group;
     }
 
-    public int getHomeTeamScore() {
+    public Integer getHomeTeamScore() {
         return HomeTeamScore;
     }
 
-    public void setHomeTeamScore(int homeTeamScore) {
+    public void setHomeTeamScore(Integer homeTeamScore) {
         HomeTeamScore = homeTeamScore;
     }
 
-    public int getAwayTeamScore() {
+    public Integer getAwayTeamScore() {
         return AwayTeamScore;
     }
 
-    public void setAwayTeamScore(int awayTeamScore) {
+    public void setAwayTeamScore(Integer awayTeamScore) {
         AwayTeamScore = awayTeamScore;
     }
 }
