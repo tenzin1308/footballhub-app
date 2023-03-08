@@ -2,10 +2,7 @@ package com.footballhub.footballhubapp.common.utils;
 
 import com.footballhub.footballhubapp.common.models.PremierLeagueModel;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class CalculateStandings {
 
@@ -50,6 +47,7 @@ public class CalculateStandings {
                 teamStandingCalculator(map, homeTeam, awayTeam, homeTeamScore, awayTeamScore);
             }
         }
+        sortStanding(map);
         return map;
     }
 
@@ -140,5 +138,21 @@ public class CalculateStandings {
             clubs.add(model.getHomeTeam());
         }
         return clubs;
+    }
+
+    private void sortStanding(List<HashMap<String, Object>> standing) {
+        Collections.sort(standing, new Comparator<HashMap<String, Object>>() {
+            @Override
+            public int compare(HashMap<String, Object> o1, HashMap<String, Object> o2) {
+                int gamePoint1 = o1.get("Pts") != null ? (int) o1.get("Pts") : 0;
+                int gamePoint2 = o2.get("Pts") != null ? (int) o2.get("Pts") : 0;
+                if (gamePoint1 == gamePoint2) {
+                    int goalDifference1 = o1.get("GD") != null ? (int) o1.get("GD") : 0;
+                    int goalDifference2 = o2.get("GD") != null ? (int) o2.get("GD") : 0;
+                    return Integer.compare(goalDifference2, goalDifference1);
+                }
+                return Integer.compare(gamePoint2, gamePoint1);
+            }
+        });
     }
 }
